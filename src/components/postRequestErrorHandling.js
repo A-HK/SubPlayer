@@ -39,12 +39,10 @@ class PostRequestErrorHandling extends React.Component {
 
     render() {
         const { errorMessage } = this.state;
+        console.log(errorMessage)
         return (
             <div className="card text-center m-3">
-                <h5 className="card-header">POST Request with Error Handling</h5>
-                <div className="card-body">
-                    Error: {errorMessage}
-                </div>
+                
             </div>
         );
     }

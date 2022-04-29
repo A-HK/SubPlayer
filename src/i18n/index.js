@@ -2,7 +2,7 @@ const en = {
     LOADING: 'Loading...',
     SUB_TEXT: 'Subtitle Text',
     OPEN_VIDEO: 'Open Video',
-    OPEN_VIDEO_TWO: 'Import Youtube Video',
+    IMPORT_VIDEO: 'Import Youtube Video',
     OPEN_SUB: 'Open Subtitle',
     EXPORT_ASS: 'Export ASS',
     EXPORT_SRT: 'Export SRT',

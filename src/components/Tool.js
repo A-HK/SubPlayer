@@ -20,6 +20,11 @@ const Style = styled.div`
     background-color: rgb(0 0 0 / 100%);
     border-left: 1px solid rgb(255 255 255 / 20%);
 
+    
+    .yt-input > input{
+        padding: 5px 8px;
+        margin: 10px 2px;
+    }
     .import {
         display: flex;
         justify-content: space-between;
@@ -273,13 +278,25 @@ export default function Header({
       
 
       const Toggle = () => {
-        const [show,setShow]=useState(true);
+        const [show, setShow] = useState(false);
+        const [url, setUrl] = useState('');
+        const [lang, setLang] = useState('');
+
+        const handleInput = () => {
+            console.log(url, lang);
+        }
         return (
           <div>
+            
+            <button className="import btn" onClick={()=>setShow(!show)}> <Translate value="IMPORT_VIDEO" /></button>
             {
-              show?<h1>Hello, I am Muskan.</h1>:null
+              show ? 
+              <div class="yt-input">
+                  <input class="url" type="text" placeholder="Video URL" onChange={e => setUrl(e.target.value)} />
+                  <input class="lang" type="text" placeholder="Language Code (example: en, hi)" onChange={e => setLang(e.target.value)}/>
+                  <button onClick={() => handleInput()}>Get Video</button>
+              </div> : null
             }
-            <button onClick={()=>setShow(!show)}>Toggle</button>
           </div>
         )
       }
@@ -507,21 +524,20 @@ export default function Header({
             <div className="top">
                 <div className="import">
                
-                    <div>
+                    <div className="btn">
                         <Translate value="OPEN_VIDEO" />
                         <input className="file" type="file" onChange={onVideoChange} onClick={onInputClick} />
                     </div>
-                    <div className="btn" onClick={Toggle}>
-                        <Translate value="OPEN_VIDEO_TWO" />
-                       { /*<input className="file" type="file" onChange={onVideoChange} onClick={onInputClick} />*/}
-                      
-                    </div>
+                
+
+    
                     <div className="btn">
                         <Translate value="OPEN_SUB" />
                         <input className="file" type="file" onChange={onSubtitleChange} onClick={onInputClick} />
                     </div>
                     
                 </div>
+                <Toggle />
                 {window.crossOriginIsolated ? (
                     <div className="burn" onClick={burnSubtitles}>
                         <div className="btn">
