@@ -2,6 +2,9 @@
 
 > SubPlayer is an online subtitle editor
 
+## Deployment
+Deployed on Vercel here : [https://sub-player-a-hk.vercel.app/](https://sub-player-a-hk.vercel.app/)
+
 https://user-images.githubusercontent.com/73497800/166067997-88f2faee-2970-4ef4-a56c-b9bef287b08c.mp4
 
 <br>
@@ -16,6 +19,8 @@ https://user-images.githubusercontent.com/73497800/166067997-88f2faee-2970-4ef4-
  - Obtained response containing video and captions fron the API using fetch in React
 
  - Kept only Indian Languages - removed all other languages
+    - Languages supported : Bengali (bn), Gujarati (gu), Hindi (hi), Kannada (kn), Malayalam (ml), Marathi (mr),
+Nepali (ne), Oriya (or), Panjabi (pa), Sinhala (si), Tamil (ta), Telugu (te), Urdu (ur)
 
  - Cleaned up the UI
     - Replaced the default Japanese video and captions with an English alternative and captions in JSON format
@@ -42,9 +47,6 @@ yarn start || yarn build
 ```
 
 
-
-## Deployment
-Deployed on Vercel here : [https://sub-player-a-hk.vercel.app/](https://sub-player-a-hk.vercel.app/)
 
 ## License
 
