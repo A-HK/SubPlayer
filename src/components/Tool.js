@@ -25,6 +25,18 @@ const Style = styled.div`
         padding: 5px 8px;
         margin: 10px 2px;
     }
+    .get-video{
+        border-radius: 3px;
+        background-color: #673ab7;
+        font-size: 13px;
+        color: #fff;
+    }
+    .import-vid{
+        background-color: #3f51b5;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 13px;
+    }
     .import {
         display: flex;
         justify-content: space-between;
@@ -288,13 +300,13 @@ export default function Header({
         return (
           <div>
             
-            <button className="import btn" onClick={()=>setShow(!show)}> <Translate value="IMPORT_VIDEO" /></button>
+            <button className="import btn import-vid" onClick={()=>setShow(!show)}> <Translate value="IMPORT_VIDEO" /></button>
             {
               show ? 
               <div class="yt-input">
-                  <input class="url" type="text" placeholder="Video URL" onChange={e => setUrl(e.target.value)} />
-                  <input class="lang" type="text" placeholder="Language Code (example: en, hi)" onChange={e => setLang(e.target.value)}/>
-                  <button onClick={() => handleInput()}>Get Video</button>
+                  <input className="url" type="text" placeholder="Video URL" onChange={e => setUrl(e.target.value)} />
+                  <input className="lang" type="text" placeholder="Language Code (example: en, hi)" onChange={e => setLang(e.target.value)}/>
+                  <button className="import btn get-video" onClick={() => handleInput()}>Get Video</button>
               </div> : null
             }
           </div>
