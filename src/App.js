@@ -249,7 +249,7 @@ export default function App({ defaultLang }) {
     useEffect(() => {
         const localSubtitleString = window.localStorage.getItem('subtitle');
         const fetchSubtitle = () =>
-            fetch('/sample.json')
+            fetch('/sample_alt.json')
                 .then((res) => res.json())
                 .then((res) => {
                     setSubtitleOriginal(res.map((item) => new Sub(item)));

@@ -111,7 +111,7 @@ const VideoWrap = memo(
             }
         }, [$video]);
 
-        return <video onClick={onClick} src="alt_video.mp4?t=1" ref={$video} />;
+        return <video onClick={onClick} src="alt_video_waves.webm?t=1" ref={$video} />;
     },
     () => true,
 );
@@ -161,12 +161,14 @@ export default function Player(props) {
         }
     }, []);
 
+   
     const onBlur = useCallback(() => {
         setTimeout(() => setFocusing(false), 500);
     }, []);
 
     const onSplit = useCallback(() => {
         props.splitSub(currentSub, inputItemCursor);
+  
     }, [props, currentSub, inputItemCursor]);
 
     return (
@@ -193,6 +195,7 @@ export default function Player(props) {
                             spellCheck={false}
                         />
                     </div>
+                   
                 ) : null}
             </div>
         </Style>

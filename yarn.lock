@@ -9124,6 +9124,13 @@ react-textarea-autosize@^8.3.3:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
+react-transliterate@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/react-transliterate/-/react-transliterate-1.1.9.tgz#72d0486596dd92a394d58e7f88decf9bbd4bff07"
+  integrity sha512-5z98xmo9fEWk++6A4o6FjoLVj6bpec8sFdQvjri9BSxqXq/r/5pwNNVWUZUzrY1DWAE++zAiJWhNuyuGxgrplw==
+  dependencies:
+    textarea-caret "^3.1.0"
+
 react-virtualized@^9.22.3:
   version "9.22.3"
   resolved "https://registry.yarnpkg.com/react-virtualized/-/react-virtualized-9.22.3.tgz#f430f16beb0a42db420dbd4d340403c0de334421"
@@ -10453,6 +10460,11 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+textarea-caret@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/textarea-caret/-/textarea-caret-3.1.0.tgz#5d5a35bb035fd06b2ff0e25d5359e97f2655087f"
+  integrity sha512-cXAvzO9pP5CGa6NKx0WYHl+8CHKZs8byMkt3PCJBCmq2a34YA9pO1NrQET5pzeqnBjBdToF5No4rrmkDUgQC2Q==
 
 throat@^5.0.0:
   version "5.0.0"

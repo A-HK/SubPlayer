@@ -347,8 +347,8 @@ export default function Header({
             setLoading(t('LOADING_VIDEO'));
             ffmpeg.FS(
                 'writeFile',
-                videoFile ? videoFile.name : 'https://rr2---sn-p5qlsnrl.googlevideo.com/videoplayback?expire=1651073169&ei=MQxpYtHuNeGH_9EPvPKRsAQ&ip=3.231.148.108&id=o-AHnkKpsonGRWnY4PSRkRkWhrFIysvWC-xq-nydmwG5fw&itag=22&source=youtube&requiressl=yes&mh=e5&mm=31%2C29&mn=sn-p5qlsnrl%2Csn-p5qddn7r&ms=au%2Crdu&mv=m&mvi=2&pl=17&initcwndbps=451250&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=127.756&lmt=1642528365099816&mt=1651051260&fvip=5&fexp=24001373%2C24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgXRuANNYuAkiEEy_ShvNYquROJKnHcN_PMJd1qWnmeTYCIQDqRsI_9VhU3u7LJS0ysauBhObq-WXfY_KeIAQahjjCuQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgJLcUNWKfNvjOSzFbVBaYdNRQhsVJog1g9e0Y1sb2yQQCIQD9rzm4XQsfx5WXznO0b2sQ5H-ttQjL6s_DHALvb16N8Q%3D%3D',
-                await fetchFile(videoFile || 'https://rr2---sn-p5qlsnrl.googlevideo.com/videoplayback?expire=1651073169&ei=MQxpYtHuNeGH_9EPvPKRsAQ&ip=3.231.148.108&id=o-AHnkKpsonGRWnY4PSRkRkWhrFIysvWC-xq-nydmwG5fw&itag=22&source=youtube&requiressl=yes&mh=e5&mm=31%2C29&mn=sn-p5qlsnrl%2Csn-p5qddn7r&ms=au%2Crdu&mv=m&mvi=2&pl=17&initcwndbps=451250&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=127.756&lmt=1642528365099816&mt=1651051260&fvip=5&fexp=24001373%2C24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgXRuANNYuAkiEEy_ShvNYquROJKnHcN_PMJd1qWnmeTYCIQDqRsI_9VhU3u7LJS0ysauBhObq-WXfY_KeIAQahjjCuQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgJLcUNWKfNvjOSzFbVBaYdNRQhsVJog1g9e0Y1sb2yQQCIQD9rzm4XQsfx5WXznO0b2sQ5H-ttQjL6s_DHALvb16N8Q%3D%3D'),
+                videoFile ? videoFile.name : 'alt_video_waves.webm?t=1',
+                await fetchFile(videoFile || 'alt_video_waves.webm?t=1'),
             );
             setLoading(t('LOADING_SUB'));
             const subtitleFile = new File([new Blob([sub2ass(subtitle)])], 'subtitle.ass');
@@ -361,7 +361,7 @@ export default function Header({
             const output = `${Date.now()}.mp4`;
             await ffmpeg.run(
                 '-i',
-                videoFile ? videoFile.name : 'sample.mp4',
+                videoFile ? videoFile.name : 'alt_video_waves.webm',
                 '-vf',
                 `ass=${subtitleFile.name}:fontsdir=/tmp`,
                 '-preset',
