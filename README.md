@@ -2,9 +2,16 @@
 
 > SubPlayer is an online subtitle editor
 
-![Screenshot 2022-04-30 003055](https://user-images.githubusercontent.com/73497800/166009273-3192509f-04b7-4f07-9612-b58b898d7112.png)
+https://user-images.githubusercontent.com/73497800/166067997-88f2faee-2970-4ef4-a56c-b9bef287b08c.mp4
 
-## Changes made
+<br>
+
+## Additional Changes made
+  - Application had several features that were not immediately obvious to the eye
+     - Thus, to make the UX experience better, added a Guided Tour of the application with the help of library `react-joyride`
+<br>
+    
+## Required Changes made
 
  - Obtained response containing video and captions fron the API using fetch in React
 
