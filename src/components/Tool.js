@@ -22,20 +22,28 @@ const Style = styled.div`
 
     
     .yt-input > input{
-        padding: 5px 8px;
-        margin: 10px 2px;
+        padding: 8px 8px;
+        margin: 10px 2px 4px 15px;
+        width: 90%;
+        text-align: center;
     }
     .get-video{
         border-radius: 3px;
         background-color: #673ab7;
         font-size: 13px;
         color: #fff;
+        border-style: none;
+        margin: auto;
+        margin-top: 10px;
     }
     .import-vid{
         background-color: #3f51b5;
         border-radius: 3px;
         color: #fff;
         font-size: 13px;
+        border-style: none;
+        margin: auto;
+        margin-bottom: 10px;
     }
     .import {
         display: flex;
@@ -304,6 +312,7 @@ export default function Header({
             {
               show ? 
               <div class="yt-input">
+                  
                   <input className="url" type="text" placeholder="Video URL" onChange={e => setUrl(e.target.value)} />
                   <input className="lang" type="text" placeholder="Language Code (example: en, hi)" onChange={e => setLang(e.target.value)}/>
                   <button className="import btn get-video" onClick={() => handleInput()}>Get Video</button>
