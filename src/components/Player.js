@@ -4,6 +4,7 @@ import { Translate } from 'react-i18nify';
 import styled from 'styled-components';
 import backlight from '../libs/backlight';
 import { isPlaying } from '../utils';
+import { PostRequestErrorHandling } from './postRequestErrorHandling';
 
 const Style = styled.div`
     display: flex;
@@ -110,7 +111,7 @@ const VideoWrap = memo(
             }
         }, [$video]);
 
-        return <video onClick={onClick} src="/sample.mp4?t=1" ref={$video} />;
+        return <video onClick={onClick} src="alt_video.mp4?t=1" ref={$video} />;
     },
     () => true,
 );
@@ -170,7 +171,9 @@ export default function Player(props) {
 
     return (
         <Style className="player">
+            <PostRequestErrorHandling />
             <div className="video" ref={$player}>
+
                 <VideoWrap {...props} />
                 {props.player && currentSub ? (
                     <div className="subtitle">

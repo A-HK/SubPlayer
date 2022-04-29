@@ -8,6 +8,7 @@ import sub2ass from '../libs/readSub/sub2ass';
 import googleTranslate from '../libs/googleTranslate';
 import FFmpeg from '@ffmpeg/ffmpeg';
 import SimpleFS from '@forlagshuset/simple-fs';
+//import Toggle from './dropdown';
 
 const Style = styled.div`
     display: flex;
@@ -256,6 +257,33 @@ export default function Header({
 }) {
     const [translate, setTranslate] = useState('en');
     const [videoFile, setVideoFile] = useState(null);
+  /*  const [show,setShow]=useState(true);
+    
+    const Search = () => {
+        const [showResults, setShowResults] = React.useState(false)
+        const onClick = () => setShowResults(true)
+        return (
+              <div>
+            <input type="submit" value="Search" onClick={onClick} />
+            { showResults ? <Results /> : null }
+          </div>
+        )
+      }*/
+      
+      
+
+      const Toggle = () => {
+        const [show,setShow]=useState(true);
+        return (
+          <div>
+            {
+              show?<h1>Hello, I am Muskan.</h1>:null
+            }
+            <button onClick={()=>setShow(!show)}>Toggle</button>
+          </div>
+        )
+      }
+       
 
     const decodeAudioData = useCallback(
         async (file) => {
@@ -295,6 +323,7 @@ export default function Header({
         [waveform, notify, setProcessing, setLoading],
     );
 
+
     const burnSubtitles = useCallback(async () => {
         try {
             const { createFFmpeg, fetchFile } = FFmpeg;
@@ -318,8 +347,8 @@ export default function Header({
             setLoading(t('LOADING_VIDEO'));
             ffmpeg.FS(
                 'writeFile',
-                videoFile ? videoFile.name : 'sample.mp4',
-                await fetchFile(videoFile || 'sample.mp4'),
+                videoFile ? videoFile.name : 'https://rr2---sn-p5qlsnrl.googlevideo.com/videoplayback?expire=1651073169&ei=MQxpYtHuNeGH_9EPvPKRsAQ&ip=3.231.148.108&id=o-AHnkKpsonGRWnY4PSRkRkWhrFIysvWC-xq-nydmwG5fw&itag=22&source=youtube&requiressl=yes&mh=e5&mm=31%2C29&mn=sn-p5qlsnrl%2Csn-p5qddn7r&ms=au%2Crdu&mv=m&mvi=2&pl=17&initcwndbps=451250&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=127.756&lmt=1642528365099816&mt=1651051260&fvip=5&fexp=24001373%2C24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgXRuANNYuAkiEEy_ShvNYquROJKnHcN_PMJd1qWnmeTYCIQDqRsI_9VhU3u7LJS0ysauBhObq-WXfY_KeIAQahjjCuQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgJLcUNWKfNvjOSzFbVBaYdNRQhsVJog1g9e0Y1sb2yQQCIQD9rzm4XQsfx5WXznO0b2sQ5H-ttQjL6s_DHALvb16N8Q%3D%3D',
+                await fetchFile(videoFile || 'https://rr2---sn-p5qlsnrl.googlevideo.com/videoplayback?expire=1651073169&ei=MQxpYtHuNeGH_9EPvPKRsAQ&ip=3.231.148.108&id=o-AHnkKpsonGRWnY4PSRkRkWhrFIysvWC-xq-nydmwG5fw&itag=22&source=youtube&requiressl=yes&mh=e5&mm=31%2C29&mn=sn-p5qlsnrl%2Csn-p5qddn7r&ms=au%2Crdu&mv=m&mvi=2&pl=17&initcwndbps=451250&vprv=1&mime=video%2Fmp4&ratebypass=yes&dur=127.756&lmt=1642528365099816&mt=1651051260&fvip=5&fexp=24001373%2C24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgXRuANNYuAkiEEy_ShvNYquROJKnHcN_PMJd1qWnmeTYCIQDqRsI_9VhU3u7LJS0ysauBhObq-WXfY_KeIAQahjjCuQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgJLcUNWKfNvjOSzFbVBaYdNRQhsVJog1g9e0Y1sb2yQQCIQD9rzm4XQsfx5WXznO0b2sQ5H-ttQjL6s_DHALvb16N8Q%3D%3D'),
             );
             setLoading(t('LOADING_SUB'));
             const subtitleFile = new File([new Blob([sub2ass(subtitle)])], 'subtitle.ass');
@@ -453,6 +482,7 @@ export default function Header({
     );
 
     const onTranslate = useCallback(() => {
+        
         setLoading(t('TRANSLATING'));
         googleTranslate(formatSub(subtitle), translate)
             .then((res) => {
@@ -476,14 +506,21 @@ export default function Header({
         <Style className="tool">
             <div className="top">
                 <div className="import">
-                    <div className="btn">
+               
+                    <div>
                         <Translate value="OPEN_VIDEO" />
                         <input className="file" type="file" onChange={onVideoChange} onClick={onInputClick} />
+                    </div>
+                    <div className="btn" onClick={Toggle}>
+                        <Translate value="OPEN_VIDEO_TWO" />
+                       { /*<input className="file" type="file" onChange={onVideoChange} onClick={onInputClick} />*/}
+                      
                     </div>
                     <div className="btn">
                         <Translate value="OPEN_SUB" />
                         <input className="file" type="file" onChange={onSubtitleChange} onClick={onInputClick} />
                     </div>
+                    
                 </div>
                 {window.crossOriginIsolated ? (
                     <div className="burn" onClick={burnSubtitles}>
@@ -541,10 +578,11 @@ export default function Header({
                 </div>
             </div>
             <div className="bottom">
-                <a href="https://online.aimu-app.com/">
+                {/* Removing Chinese advertisement on right */}
+               {/* <a href="https://online.aimu-app.com/">
                     <div className="title">全新字幕编辑器来了，点击这里体验</div>
                     <img src="/aimu.png" alt="aimu" />
-                </a>
+                </a>*/}
             </div>
         </Style>
     );
