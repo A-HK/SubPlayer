@@ -8,7 +8,7 @@ import sub2ass from '../libs/readSub/sub2ass';
 import googleTranslate from '../libs/googleTranslate';
 import FFmpeg from '@ffmpeg/ffmpeg';
 import SimpleFS from '@forlagshuset/simple-fs';
-//import Toggle from './dropdown';
+
 
 const Style = styled.div`
     display: flex;
@@ -306,7 +306,7 @@ export default function Header({
             console.log(url, lang);
         }
         return (
-          <div>
+          <div className="toggle">
             
             <button className="import btn import-vid" onClick={()=>setShow(!show)}> <Translate value="IMPORT_VIDEO" /></button>
             {

@@ -11,6 +11,7 @@ import Loading from './components/Loading';
 import ProgressBar from './components/ProgressBar';
 import { getKeyCode } from './utils';
 import Sub from './libs/Sub';
+import { GuidedTour } from './components/GuidedTour';
 
 const Style = styled.div`
     height: 100%;
@@ -308,6 +309,7 @@ export default function App({ defaultLang }) {
     return (
         <Style>
             <div className="main">
+                <GuidedTour />
                 <Player {...props} />
                 <Subtitles {...props} />
                 <Tool {...props} />

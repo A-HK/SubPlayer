@@ -4,7 +4,7 @@ import { Translate } from 'react-i18nify';
 import styled from 'styled-components';
 import backlight from '../libs/backlight';
 import { isPlaying } from '../utils';
-import { PostRequestErrorHandling } from './postRequestErrorHandling';
+import { PostRequestErrorHandling } from './APICall';
 
 const Style = styled.div`
     display: flex;
