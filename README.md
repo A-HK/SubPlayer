@@ -4,21 +4,8 @@
 
 ![Screenshot](./images/screenshot6.png)
 
-## Homepage
-
-[https://subplayer.js.org](https://subplayer.js.org)
-
-## Donations
-
-We accept donations through these channels:
-
-![pay](./public/pay.png)
-
--   [Paypal](https://www.paypal.me/harveyzack)
-
-## QQ Group
-
-![QQ Group](./public/qqgroup.png)
+## Deployment
+Deployed on Vercel here : [https://sub-player-a-hk.vercel.app/](https://sub-player-a-hk.vercel.app/)
 
 ## License
 
